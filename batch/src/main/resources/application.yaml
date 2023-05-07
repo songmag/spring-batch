@@ -1,0 +1,16 @@
+spring:
+  batch:
+    job:
+      names: ${job.names:null}
+    jdbc:
+      initialize-schema: always
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    jdbc-url: "jdbc:mysql://localhost:12707/payout"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: 'test'
+    password: 'test'
+  h2:
+    console:
+      enabled: true
+      path: /h2
