@@ -14,3 +14,10 @@ spring:
     console:
       enabled: true
       path: /h2
+  main:
+    banner-mode: off
+logging:
+  level:
+    root: off
+    web: off
+    sql: off
