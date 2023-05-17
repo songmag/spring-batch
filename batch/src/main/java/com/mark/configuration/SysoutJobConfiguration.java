@@ -21,11 +21,9 @@ public class SysoutJobConfiguration {
 
     @Bean(SYSOUT_JOB)
     public Job sysoutJob(
-            TimeIncrementer timeIncrementer,
             Step sysoutStep
     ) {
         return jobBuilderFactory.get(SYSOUT_JOB)
-                .incrementer(timeIncrementer)
                 .start(sysoutStep)
                 .build();
     }

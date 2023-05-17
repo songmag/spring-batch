@@ -19,9 +19,9 @@ public class TimeIncrementer implements JobParametersIncrementer {
                 Optional.of(parameters.getParameters())
                         .orElseGet(HashMap::new)
         );
-        String time = String.valueOf(param.get("time"));
+        String time = param.get("time") == null ? null : String.valueOf(param.get("time"));
 
-        LocalDate today = (time == null) ? LocalDate.now() : LocalDate.from(DateTimeFormatter.ISO_DATE.parse(time));
+        LocalDate today = (time == null || time.isBlank()) ? LocalDate.now() : LocalDate.from(DateTimeFormatter.ISO_DATE.parse(time));
 
         param.put("time", new JobParameter(DateTimeFormatter.ISO_DATE.format(today)));
 
